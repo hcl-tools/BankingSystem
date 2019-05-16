@@ -9,8 +9,9 @@
 <html>
   <head>
     <title>$Title$</title>
+
   </head>
   <body>
-  $END$
+    <a href="login.jsp">login</a>
   </body>
 </html>
