@@ -11,7 +11,18 @@ public class Transaction {
 
     private String remarks, status;
 
+    public Transaction(){}
     public Transaction(int id, int debitedAcc, int creditedAcc, double amount, Timestamp time){
+        this.id = id;
+        this.debitedAcc = debitedAcc;
+        this.creditedAcc = creditedAcc;
+        this.amount = amount;
+        this.time = time;
+        this.remarks = "";
+        this.status = "";
+    }
+
+    public Transaction(int debitedAcc, int creditedAcc, double amount){
         this.id = id;
         this.debitedAcc = debitedAcc;
         this.creditedAcc = creditedAcc;
@@ -33,13 +44,13 @@ public class Transaction {
     public Timestamp getTime(){
         return time;
     }
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
     public String getRemarks() {
         return remarks;
     }
-
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
@@ -47,7 +58,6 @@ public class Transaction {
     public String getStatus() {
         return status;
     }
-
     public void setStatus(String status) {
         this.status = status;
     }

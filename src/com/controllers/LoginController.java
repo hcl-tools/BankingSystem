@@ -11,16 +11,8 @@ import java.sql.SQLException;
 @WebServlet(urlPatterns = "/controller")
 public class LoginController extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        String shit = "";
-        try {
-            shit = new AccountDao().read();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        response.sendRedirect(shit + ".jsp");
+        request.getParameter("");
+        response.sendRedirect( "login.jsp");
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
