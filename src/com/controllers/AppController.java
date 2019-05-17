@@ -2,10 +2,14 @@ package com.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.appexception.AppException;
 import com.bean.Customer;
+import com.bean.Transaction;
 import com.bean.User;
+import com.service.CreateTransaction;
 import com.service.UserManager;
 import com.service.UserManagerImpl;
 
@@ -21,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @authors Dom R, Michael N, Crystal S
  *
  */
-@WebServlet("/AppController")
+@WebServlet(urlPatterns = "/AppController")
 public class AppController extends HttpServlet {
 	
 	private boolean isLoggedIn = false;
@@ -38,7 +42,7 @@ public class AppController extends HttpServlet {
 			throws ServletException, IOException {
 		if (request != null) {
 			switch (request.getParameter("page")) {
-			case "login":  // customer or banker 
+			case "login":  // customer or banker
 				login(request, response);
 				break;
 			case "myAccounts": // customer 
@@ -60,6 +64,7 @@ public class AppController extends HttpServlet {
 				updateContactDetails(request, response); 
 				break;
 			default:
+				response.sendRedirect("Login.jsp");
 				break;
 			}
 		}
@@ -67,6 +72,7 @@ public class AppController extends HttpServlet {
 
 	public void login(HttpServletRequest request, HttpServletResponse response) {
 		try {
+
 			/* 1. PRE-VALIDATE */
 			if (request.getParameter("userName").equals("") || request.getParameter("userName") == null
 					|| request.getParameter("password").equals("") || request.getParameter("password") == null) {
@@ -80,10 +86,13 @@ public class AppController extends HttpServlet {
 
 			/* 3. MAKE DTO */
 			User user = new User();
+			user.setUserName(userName);
+			user.setPassword(password);
 
 			/* 4. BOOMERANG TO SERVICE LAYER FOR PROCESSING */
 			UserManager userManager = new UserManagerImpl();
 			User returnedUser = userManager.validateUser(user);
+
 
 			/* 5. RESPOND TO CLIENT */
 			// validate return
@@ -97,7 +106,7 @@ public class AppController extends HttpServlet {
 			} else {
 				isLoggedIn = true;
 			}
-			
+
 			// check user type for page direct
 			if (returnedUser instanceof Customer) {
 				response.sendRedirect("MyAccounts.jsp");
@@ -121,7 +130,12 @@ public class AppController extends HttpServlet {
 	}
 	
 	public void transferFunds(HttpServletRequest request, HttpServletResponse response) {
+		CreateTransaction ct = new CreateTransaction();
 
+		List<Transaction> trans = ct.getAllTransactions();
+		System.out.println("FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUck");
+		for (Transaction t : trans)
+			System.out.println(t.getAmountExchanged());
 	}	
 	
 	public void createAccount(HttpServletRequest request, HttpServletResponse response, boolean isCustomerRequest) {

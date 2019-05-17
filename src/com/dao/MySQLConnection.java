@@ -13,9 +13,9 @@ public class MySQLConnection implements Connection {
 		Connection con = null;
 		try {
 			String driverName = "com.mysql.jdbc.Driver";
-			String url = "jdbc:mysql://localhost:3306/servletTest";
+			String url = "jdbc:mysql://46.101.176.39/bank_db";
 			Class.forName(driverName);
-			con = DriverManager.getConnection(url, "root", "dev123");
+			con = DriverManager.getConnection(url, "admin", "admin");
 			if (con != null ) {
 				System.out.println("connection established");
 			}

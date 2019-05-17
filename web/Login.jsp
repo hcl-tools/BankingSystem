@@ -16,7 +16,7 @@
 
 	<section>
 	<h1>Login</h1>
-	<form action="/AppController" method="post">
+	<form action="AppController" method="post">
 		<p><label>Username:</label><input type="text" name="userName"></p>
 		<p><label>Password:</label><input type="password" name="password"></p>
 		<input type="hidden" name="page" value="login">

@@ -8,7 +8,7 @@ public class CheckingAccount extends Account {
     private boolean belowBalance;
 
     public CheckingAccount(int accountNumber, double balance) {
-        super(accountNumber, balance);
+        //super(accountNumber, balance);
     }
 
     public double getBelowBalanceFee() {

@@ -16,6 +16,7 @@ public class User {
 	private String address;
 	private String userName;
 	private String password;
+	private boolean isCustomer;
 	
 	public User() {}
 	
@@ -79,6 +80,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
+
+	public boolean isCustomer() {
+		return isCustomer;
+	}
+
+	public void setCustomer(boolean customer) {
+		isCustomer = customer;
+	}
 }
 

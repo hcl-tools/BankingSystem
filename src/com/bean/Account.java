@@ -1,23 +1,75 @@
 package com.bean;
 
-public abstract class Account {
-    private final int accountNumber;
-    protected double balance;
-    protected int bsb;
+public class Account {
+	
+	private String accountType;
+	 
+	private Transaction transaction;
+	private int accountNumber;
+	private User user;
+	private int accountBalance;
+	private int accountMinBalance;
+	private int accountBSB;
+	
+	public int getAccountBalance() {
+		return accountBalance;
+	}
 
-    protected Account(int accountNumber, double balance){
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-    }
+	public void setAccountBalance(int accountBalance) {
+		this.accountBalance = accountBalance;
+	}
 
-    public int getAccountNumber(){
-        return accountNumber;
-    }
+	public Account() {}
 
-    public double getBalance() { return balance; }
-    public void setBalance(double balance) { this.balance = balance; }
+	public String getAccountType() {
+		return accountType;
+	}
 
-    public int getBsb() { return bsb; }
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
 
-    public void setBsb(int bsb) { this.bsb = bsb; }
+	public Transaction getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(Transaction transaction) {
+		this.transaction = transaction;
+	}
+
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public int getAccountMinBalance() {
+		return accountMinBalance;
+	}
+
+	public void setAccountMinBalance(int accountMinBalance) {
+		this.accountMinBalance = accountMinBalance;
+	}
+
+	public int getAccountBSB() {
+		return accountBSB;
+	}
+
+	public void setAccountBSB(int accountBSB) {
+		this.accountBSB = accountBSB;
+	}
+	
+	
+	
+	
 }

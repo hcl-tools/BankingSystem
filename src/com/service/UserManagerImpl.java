@@ -23,11 +23,12 @@ public class UserManagerImpl implements UserManager {
 	@Override
 	public User validateUser(User user) {
 		if ((foundUser = userDao.findUser(user)) != null) {
+			System.out.println("FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK: " + foundUser.getUserName());
 			if (foundUser.getUserId() == user.getUserId()
 					&& foundUser.getPassword().equals(user.getPassword())) {
 					user = foundUser;
 				}
-		}	
+		}
 		return sanitiseReturn(user); // if includes full name minus password, password is validated
 	}
 

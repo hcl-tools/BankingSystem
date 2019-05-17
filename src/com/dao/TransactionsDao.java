@@ -67,7 +67,7 @@ public class TransactionsDao {
             String query = "select * from Transaction";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
-            conn.createStatement().executeUpdate(query);
+            conn.createStatement().executeQuery(query);
 
             while (rs.next()) {
                 Transaction currentTransaction = new Transaction(rs.getInt("trans_id"),

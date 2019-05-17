@@ -5,7 +5,7 @@ public class SavingsAccount extends Account{
     private boolean belowBalance;
 
     public SavingsAccount(int accountNumber, double balance) {
-        super(accountNumber, balance);
+        //super(accountNumber, balance);
     }
 
     public double getAnnualCharge() {

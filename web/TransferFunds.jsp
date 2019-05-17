@@ -32,7 +32,7 @@
 		<article>
 			<section>
 
-			<form action="/AppController" method="post">
+			<form action="AppController" method="post">
 				<h1>Transfer Funds</h1>
 				<h2>From</h2>
 				<p><label>Account:</label>
